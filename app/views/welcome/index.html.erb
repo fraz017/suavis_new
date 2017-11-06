@@ -626,8 +626,13 @@
                                   </div>
                               </div>
                               <div class="control-group">
+                                <div class="controls">
+                                  <%= recaptcha_tags callback: 'submitInvisibleRecaptchaForm'%>
+                                </div>
+                              </div>
+                              <div class="control-group">
                                   <div class="controls">
-                                      <button id="send-mail" class="message-btn">Send message</button>
+                                      <button id="send-mail" class="message-btn hidden">Send message</button>
                                   </div>
                               </div>
                           </form>
@@ -679,3 +684,8 @@
   </div>
   <!-- ScrollUp button end -->
 </body>
+<script type="text/javascript">
+  var submitInvisibleRecaptchaForm = function () {
+    $("#send-mail").removeClass("hidden");
+  };
+</script>

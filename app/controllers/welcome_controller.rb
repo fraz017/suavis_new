@@ -3,7 +3,9 @@ class WelcomeController < ApplicationController
   end
 
   def contact
-  	ContactMailer.send_email(params[:name], params[:email], params[:message]).deliver_later
+  	if verify_recaptcha
+  		ContactMailer.send_email(params[:name], params[:email], params[:message]).deliver_later	
+    end	
     render json: {success: true}, status: 200
   end
 end
