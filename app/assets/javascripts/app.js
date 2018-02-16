@@ -394,6 +394,7 @@ function initializeMap() {
     var map = new google.maps.Map(document.getElementById('map-canvas'), myOptions);
     var marker = new google.maps.Marker({
         map: map,
+        icon: "http://suavistech.com/assets/favicon-b7ed2f228fc9287add13b48e89dda8991515d88aaed48c31a6e5fdfd70dc66e5.ico",
         position: new google.maps.LatLng(lat, lon),
 
     });
