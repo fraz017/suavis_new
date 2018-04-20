@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   post '/contact' => 'welcome#contact'
   get '/portfolio' => 'welcome#portfolio'
   get '/pps' => 'welcome#pps'
+  get '/ipa' => 'welcome#ipa'
   root 'welcome#index'
 end
