@@ -8,4 +8,7 @@ class WelcomeController < ApplicationController
     end	
     render json: {success: true}, status: 200
   end
+
+  def pps
+  end
 end
