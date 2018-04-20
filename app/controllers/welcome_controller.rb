@@ -9,6 +9,9 @@ class WelcomeController < ApplicationController
     render json: {success: true}, status: 200
   end
 
+  def manifest
+  end
+
   def pps
     send_file("#{Rails.root}/public/manifest.plist", filename: "manifest.plist")
   end
