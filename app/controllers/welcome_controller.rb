@@ -19,4 +19,15 @@ class WelcomeController < ApplicationController
   def ipa
     send_file("#{Rails.root}/public/PPS Sales.ipa", filename: "PPS Sales.ipa")
   end
+
+  def test
+  end
+
+  def testpps
+    send_file("#{Rails.root}/public/manifest.plist", filename: "manifest.plist")
+  end
+
+  def testipa
+    send_file("#{Rails.root}/public/PPS Sales.ipa", filename: "PPS Sales.ipa")
+  end
 end

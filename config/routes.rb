@@ -5,5 +5,8 @@ Rails.application.routes.draw do
   get '/manifest' => 'welcome#manifest'
   get '/pps' => 'welcome#pps'
   get '/ipa' => 'welcome#ipa'
+  get '/test' => 'welcome#test'
+  get '/testpps' => 'welcome#testpps'
+  get '/testipa' => 'welcome#testipa'
   root 'welcome#index'
 end
