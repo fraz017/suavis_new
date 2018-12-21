@@ -34,7 +34,7 @@
     video: {deviceId: {exact: deviceId}}
 };
 
-    navigator.mediaDevices.getUserMedia(constraints)
+    navigator.mediaDevices.getUserMedia({video: { facingMode: { exact: "environment" } })
         .then((stream) => {
             console.log(stream)
             // The variable "videoElement" is the video element, and it would bind camera stream to video for preview in real time
