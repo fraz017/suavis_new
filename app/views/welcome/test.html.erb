@@ -40,4 +40,7 @@
         .catch((err) => {
             
         });
+
+        canvasContext.drawImage(videoElement, 0, 0, videoSetting.width, videoSetting.height);
+const image = canvasElement.toDataURL('image/jpeg', 0.5).split('base64,')[1];
 </script>
