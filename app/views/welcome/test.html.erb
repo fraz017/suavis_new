@@ -1,1 +1,43 @@
-<a href="itms-services://?action=download-manifest&url=https://www.suavistech.com/testpps" class='btn btn-primary btn-large' id="text"> PPS Sales App </a> 
+<script>
+    var deviceId;
+    navigator.mediaDevices.enumerateDevices()
+   .then((devices) => {
+       devices.find((device) => {   
+        if (device.kind === 'videoinput') {
+                console.log("here", videoDeviceElement)
+               const option = document.createElement('option');
+               option.text = device.label || 'camera '+ (videoDeviceElement.length + 1).toString();
+               option.value = device.deviceId;
+                deviceId = device.deviceId;
+               // Store the camera ID in the select element to switch between the front-facing and rear-facing cameras
+               videoDeviceElement.appendChild(option);
+           }
+       });
+
+       if (videoDeviceElement.length === 0) {
+           reject('no camera');
+       } else {
+           resolve(true);
+       }
+   })
+   .catch((err) => {
+   });
+
+   const constraints = {
+    audio: false,
+    video: {deviceId: {exact: deviceId}}
+};
+
+    navigator.mediaDevices.getUserMedia(constraints)
+        .then((stream) => {
+            console.log(stream)
+            // The variable "videoElement" is the video element, and it would bind camera stream to video for preview in real time
+            videoElement.srcObject = stream;
+            videoElement.style.display = 'block';
+            videoElement.play();
+            resolve(true);
+        })
+        .catch((err) => {
+            
+        });
+</script>
