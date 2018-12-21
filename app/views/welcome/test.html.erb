@@ -1,10 +1,15 @@
 <video autoplay id="video"></video>
+<select id="cameras">
+
+
+</select>
 <script>
     var deviceId;
     navigator.mediaDevices.enumerateDevices()
    .then((devices) => {
        devices.find((device) => {   
         if (device.kind === 'videoinput') {
+            var videoDeviceElement = document.getElementById("cameras")
                 console.log("here", videoDeviceElement)
                const option = document.createElement('option');
                option.text = device.label || 'camera '+ (videoDeviceElement.length + 1).toString();
