@@ -51,7 +51,10 @@ class WelcomeController < ApplicationController
     request.body = parameters.to_json
     # Send the request
     response = http.request(request)
-    binding.pry
+
+    puts "***********************************************"
+    pust response.body
+
     data = JSON.parse(response.body)
   end
 
