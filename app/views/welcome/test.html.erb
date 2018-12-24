@@ -27,11 +27,9 @@
    });
 
    const constraints = {
-    audio: false,
-    facingMode: 'environment',
-    video: {width: { min: 1024, ideal: 1280, max: 1920 },
-          height: { min: 776, ideal: 720, max: 1080 },
-          deviceId: { exact: videoDevices[1]  }}
+        audio: false,
+        facingMode: 'environment',
+        video: {deviceId: { exact: videoDevices[1]  }}
     };
 
 navigator.mediaDevices.getUserMedia(constraints)
