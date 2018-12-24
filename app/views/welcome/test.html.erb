@@ -1,7 +1,8 @@
 <video autoplay id="video"></video>
 
 <script>
-    var ids = []
+    var videoDevices = [0,0];
+    var videoDeviceIndex = 0;
     navigator.mediaDevices.enumerateDevices()
    .then((devices) => {
        devices.find((device) => {
@@ -9,7 +10,7 @@
                //const option = document.createElement('option');
                //option.text = device.label || 'camera '+ (videoDeviceElement.length + 1).toString();
                //option.value = device.deviceId;
-               ids.push(device.deviceId) 
+               videoDevices[videoDeviceIndex++] =  device.deviceId;
                // Store the camera ID in the select element to switch between the front-facing and rear-facing cameras
                // videoDeviceElement.appendChild(option);
            }
@@ -22,12 +23,13 @@
    })
    .catch((err) => {
    });
-   console.log(ids)
 
    const constraints = {
     audio: false,
     facingMode: 'environment',
-    video: {deviceId: {exact: ids.slice(-1).pop()}}
+    video: {width: { min: 1024, ideal: 1280, max: 1920 },
+          height: { min: 776, ideal: 720, max: 1080 },
+          deviceId: { exact: videoDevices[1]  }}
     };
 
 navigator.mediaDevices.getUserMedia(constraints)
