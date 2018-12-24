@@ -20,5 +20,6 @@
 //= require jquery.placeholder
 //= require jquery.inview
 //= require app
+//= require fingerprint
 
 

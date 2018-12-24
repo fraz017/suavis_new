@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   # get '/test' => 'welcome#test'
   # get '/testpps' => 'welcome#testpps'
   # get '/testipa' => 'welcome#testipa'
+  post "/test-image" => 'welcome#test_image'
   root 'welcome#index'
 end
