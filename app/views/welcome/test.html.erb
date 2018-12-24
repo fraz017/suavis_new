@@ -23,6 +23,7 @@
        }
    })
    .catch((err) => {
+       console.log(err)
    });
 
    const constraints = {
@@ -43,6 +44,7 @@ navigator.mediaDevices.getUserMedia(constraints)
             resolve(true);
         })
         .catch((err) => {
+            console.log(err)
             //reject(err);
         });
 </script>
