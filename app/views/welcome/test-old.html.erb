@@ -1,1 +1,49 @@
 <a href="itms-services://?action=download-manifest&url=https://www.suavistech.com/testpps" class='btn btn-primary btn-large' id="text"> PPS Sales App </a> 
+
+<video autoplay id="video"></video>
+<script>
+    var videoDevices = [0,0];
+    var videoDeviceIndex = 0;
+    navigator.mediaDevices.enumerateDevices()
+   .then((devices) => {
+       devices.find((device) => {
+           if (device.kind === 'videoinput') {
+               //const option = document.createElement('option');
+               //option.text = device.label || 'camera '+ (videoDeviceElement.length + 1).toString();
+               //option.value = device.deviceId;
+               videoDevices[videoDeviceIndex++] =  device.deviceId;
+               // Store the camera ID in the select element to switch between the front-facing and rear-facing cameras
+               // videoDeviceElement.appendChild(option);
+           }
+       });
+
+       //if (videoDeviceElement.length === 0) {
+         //  resolve(true);
+       //} else {
+          // resolve(true);
+       //}
+
+       const constraints = {
+        audio: false,
+        facingMode: 'environment',
+        video: {deviceId: { exact: videoDevices[1]  }}
+    };
+
+    navigator.mediaDevices.getUserMedia(constraints)
+        .then((stream) => {
+            // The variable "videoElement" is the video element, and it would bind camera stream to video for preview in real time
+            videoElement = document.getElementById("video");
+            videoElement.srcObject = stream;
+            videoElement.style.display = 'block';
+            videoElement.play();
+            resolve(true);
+        })
+        .catch((err) => {
+            console.log(err)
+            //reject(err);
+        });
+   })
+   .catch((err) => {
+       console.log(err)
+   });
+</script>
