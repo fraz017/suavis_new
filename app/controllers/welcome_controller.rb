@@ -53,7 +53,7 @@ class WelcomeController < ApplicationController
     response = http.request(request)
 
     puts "***********************************************"
-    pust response.body
+    puts response.body
 
     data = JSON.parse(response.body)
   end
