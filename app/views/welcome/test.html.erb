@@ -21,18 +21,14 @@
        //} else {
           // resolve(true);
        //}
-   })
-   .catch((err) => {
-       console.log(err)
-   });
 
-   const constraints = {
+       const constraints = {
         audio: false,
         facingMode: 'environment',
         video: {deviceId: { exact: videoDevices[1]  }}
     };
 
-navigator.mediaDevices.getUserMedia(constraints)
+    navigator.mediaDevices.getUserMedia(constraints)
         .then((stream) => {
             // The variable "videoElement" is the video element, and it would bind camera stream to video for preview in real time
             videoElement = document.getElementById("video");
@@ -45,4 +41,8 @@ navigator.mediaDevices.getUserMedia(constraints)
             console.log(err)
             //reject(err);
         });
+   })
+   .catch((err) => {
+       console.log(err)
+   });
 </script>
